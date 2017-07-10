@@ -7,11 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="shiroTest-chapter1" />
+        <module name="shiroTest-chapter2" />
+        <module name="shiroTest-chapter3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="shiroTest" target="1.5" />
       <module name="shiroTest-chapter1" target="1.5" />
+      <module name="shiroTest-chapter2" target="1.5" />
+      <module name="shiroTest-chapter3" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
