@@ -1,6 +1,5 @@
 package com.lixiaohao.test.springshiro.filter;
 
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authz.AuthorizationFilter;
 
 import javax.servlet.ServletRequest;
@@ -30,17 +29,17 @@ public class AuthenticationFilter extends AuthorizationFilter  {
 
     protected boolean isAccessAllowed(ServletRequest servletRequest, ServletResponse servletResponse, Object o) throws Exception {
 
-       Subject subject = getSubject(servletRequest,servletResponse);
+//       Subject subject = getSubject(servletRequest,servletResponse);
+//
+//
+//        HttpServletRequest request = (HttpServletRequest)servletRequest;
+//        String url = getRequestUrl(request);
+//
+//        if ( subject.isPermitted(permissions.get(url)) ) {
+//            return true;
+//        }
 
-
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        String url = getRequestUrl(request);
-
-        if ( subject.isPermitted(permissions.get(url)) ) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
 

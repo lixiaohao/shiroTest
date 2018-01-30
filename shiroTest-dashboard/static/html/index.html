@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<span id="span">测试一下</span>
+
+<button id="btn">点击一下</button>
+
+<script>
+$('#btn').click(function () {
+
+    var obj = {};
+
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:8081/shiro/anon/find?name=小明",
+        data:obj,
+        dataType:"json",
+        success:function (data) {
+
+            console.log(data);
+
+            $('span').html(data.userName);
+        },
+        error:function (error) {
+            console.log(error)
+        }
+    });
+});
+</script>
+</body>
+</html>

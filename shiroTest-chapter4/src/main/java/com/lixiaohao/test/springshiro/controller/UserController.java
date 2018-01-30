@@ -1,5 +1,6 @@
 package com.lixiaohao.test.springshiro.controller;
 
+import com.lixiaohao.test.springshiro.model.User;
 import com.lixiaohao.test.springshiro.service.UserService;
 import com.lixiaohao.test.springshiro.util.MD5HashUtil;
 import org.apache.shiro.SecurityUtils;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.UUID;
 
 /**
  * Created by xiaohao.li on 2017/7/19.
@@ -108,10 +111,16 @@ public class UserController {
         System.out.println("11111111111111");
         return  "success";
     }
-    @RequestMapping("/anon/find")
+
+
+    @RequestMapping(value = "/anon/find")
     @ResponseBody
-    public String find () {
+    public User find (String name) {
         System.out.println("11111111111111");
-        return  "success";
+        User user = new User();
+        user.setId(System.currentTimeMillis());
+        user.setPassWord("12345");
+        user.setUserName(name);
+        return  user;
     }
 }
