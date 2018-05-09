@@ -47,6 +47,7 @@
             <value>
                 /shiro/user/login = anon
                 /shiro/user/** = authc
+                /shiro/article/** = authc
                 /shiro/anon/** = anon
             </value>
         </property>
