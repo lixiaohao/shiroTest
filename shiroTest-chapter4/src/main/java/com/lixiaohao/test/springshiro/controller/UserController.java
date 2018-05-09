@@ -18,12 +18,12 @@ import java.util.UUID;
  * Created by xiaohao.li on 2017/7/19.
  */
 @Controller
-@RequestMapping("/shiro")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     @ResponseBody
     public String login(String userName,String passWord) {
 
@@ -68,7 +68,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("/user/delete")
+    @RequestMapping("/delete")
     @ResponseBody
     public String delete () {
         Subject subject = SecurityUtils.getSubject();
@@ -81,7 +81,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("/user/hasRole")
+    @RequestMapping("/hasRole")
     @ResponseBody
     public String hasRole () {
         Subject subject = SecurityUtils.getSubject();
@@ -97,7 +97,7 @@ public class UserController {
 
 
 
-    @RequestMapping("/user/update")
+    @RequestMapping("/update")
     @ResponseBody
     public String update () {
 
@@ -105,7 +105,7 @@ public class UserController {
 
     }
 
-    @RequestMapping("/user/find")
+    @RequestMapping("/find")
     @ResponseBody
     public String find2 () {
         System.out.println("11111111111111");
