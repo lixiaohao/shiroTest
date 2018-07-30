@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lixiaohao.test.springshiro.dao.UserDao">
+       <resultMap type="com.lixiaohao.test.springshiro.model.User" id="UserResult">
+         <id column="ID" jdbcType="INTEGER" property="id"/>
+         <result column="REAL_NAME" jdbcType="VARCHAR" property="realName"/>
+         <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
+         <result column="PASS_WORD" jdbcType="VARCHAR" property="passWord"/>
+           <result column="RABBIT" jdbcType="VARCHAR" property="rabbit"/>
+       </resultMap>
+
+       <select id="findByUserName" parameterType="String" resultMap="UserResult" >
+       	SELECT * FROM shiro_user WHERE USER_NAME=#{userName}
+       </select>
+
+     	<insert id="inert" parameterType="com.lixiaohao.test.springshiro.model.User" >
+     	insert into shiro_user(ID,REAL_NAME,USER_NAME,PASS_WORD,RABBIT) value(#{id},#{realName},#{userName},#{passWord},#{rabbit})
+     	</insert>
+
+     </mapper>

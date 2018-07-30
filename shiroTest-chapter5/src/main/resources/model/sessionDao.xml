@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lixiaohao.test.springshiro.dao.SessionModelDao">
+
+    <resultMap type="com.lixiaohao.test.springshiro.model.SessionModel" id="sessionModel">
+         <id column="id" jdbcType="INTEGER" property="id"/>
+         <result column="sessionId" jdbcType="VARCHAR" property="sessionId"/>
+         <result column="value" jdbcType="VARCHAR" property="value"/>
+         <result column="status" jdbcType="INTEGER" property="status"/>
+         <result column="sessionStr" jdbcType="VARCHAR"  property="sessionStr" />
+       </resultMap>
+
+       <select id="findBySessionId" parameterType="String" resultMap="sessionModel" >
+       	SELECT * FROM session WHERE sessionId=#{sessionId} AND status=1
+       </select>
+
+     	<insert id="insert" parameterType="com.lixiaohao.test.springshiro.model.SessionModel" >
+     	insert into session(id,sessionId,value,status,sessionStr) value(#{id},#{sessionId},#{value},#{status},#{sessionStr})
+     	</insert>
+
+    <update id="update" parameterType="com.lixiaohao.test.springshiro.model.SessionModel" >
+        UPDATE session SET sessionStr=#{sessionStr} WHERE sessionId = #{sessionId}
+    </update>
+
+        <update id="delete" parameterType="String">
+            UPDATE session SET status=0 WHERE sessionId = #{sessionId}
+        </update>
+
+     </mapper>
